@@ -1,0 +1,2 @@
+# Shell scripts: always LF, whatever the checkout's platform.
+*.sh text eol=lf

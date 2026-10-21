@@ -1,0 +1,72 @@
+{
+  "_comment": "Optional: the server runs without this file. Copy it to server_config.json to change a setting; both processes read it. Every key is optional and the defaults suit a hosted server. A key starting with _ is a comment. Environment variables override a few: AC3_SERVER_ADDRESS, AC3_PLAYERS, AC3_LOG_PACKETS.",
+
+  "_address": "What the game is told to connect to: this server's address AS PLAYERS REACH IT. Leave it out (the default) and the server finds it at start-up: a public address on one of this machine's interfaces (a VPS), else the address the internet sees it at (asked of api.ipify.org / icanhazip.com / ifconfig.me), else its LAN address. Set it to skip that: a LAN evening wants this machine's LAN address, the game on this machine only 127.0.0.1. \"auto\" = this machine's LAN address, \"public\" = the address the internet sees. An unreachable address puts every game in limited mode with nothing in the game server's log; the start-up banner states the address and how it was found.",
+  "address": "",
+
+  "_currency": "Starting shop balance for a player with no saved balance yet, as [field0, field1]. The client reads it via Shop GetCurrency and adds to it via AddCurrency after a match - match rewards go into the second field. Balances persist per player in the data folder (currency_<name>.json).",
+  "currency": [0, 0],
+  "_price_multiplier": "Scales every price in the shop catalogue (shop_catalogue.json in the data folder; without it the store is empty). Prices are server-side, so 1.0 keeps the catalogue's values and 0 makes everything free.",
+  "price_multiplier": 1.0,
+  "_free_ability_sets": "Switching ability set in a match costs nothing: IsMoneySinkFree=\"true\" in every mode's GBrick_MoneySink (the competitive modes ship false; the tutorials and training true). true by default; false = the game's own escalating price.",
+  "free_ability_sets": true,
+  "_extra_maps": "Extra map ids to list in playlists we serve, {playlist id: [map ids]}. A map id is the uid of an MpWorld in the client's Game Bootstrap Settings, and the map's archive must be in the client's multi/. The DLC maps go into the Public DLC (9) and Private DLC (10) playlists - Charlestown 2569229107 / 1453016576 / 1453016579, Fort St Mathieu 2569229101 / 1453016564 / 1453016567 (day / night / weather; v1.00 lists only Martinique's three) - for players who have the DLC. Empty = off. This edits the one file the game must accept before matchmaking works, so remove it first if matchmaking stops working.",
+  "extra_maps": {},
+  "_playlist_order": "Order of every playlist's map list: \"stock\", \"reverse\", or \"shuffle\" (a new random order each server start; the Private playlist's order is printed at start-up). Applied after extra_maps.",
+  "playlist_order": "stock",
+  "_extra_content_url": "Where the multiplayer menu's \"Extra Content\" button goes. Empty by default (the button does nothing, but no longer stalls); set any URL and the button opens it.",
+  "extra_content_url": "",
+  "_group_size": "8 lets a group of 8 form and follow its leader into a private match (GroupSizeMax, the private playlists' groupSize, the team modes' JoinMaxGroupSize). How the game's group menu shows more than 4 is untested: 4 (stock) by default.",
+  "group_size": 4,
+  "_private_min_players": "1 lets a private match start with one player. 2 (stock) by default.",
+  "private_min_players": 2,
+
+  "_friends": "Who appears in a player's in-game friends list, which is who they can invite to a private match. \"everyone\" (default): every other player this server has ever seen. \"requests\": the player's Ubisoft Connect friends who play here, and friend requests the game sends, kept mutual in friends.json in the data folder. \"explicit\": only the pairs named in friendships below. On a very big server prefer \"requests\": with \"everyone\" each login tells every online player.",
+  "friends": "everyone",
+  "_friendships": "Only used when friends is \"explicit\". Maps a principal id (as a string) to the list of players it should see, each given as a pid, display name or account name.",
+  "friendships": {},
+  "_friend_notifications": "Push 'friend request from X' when a friendship is made, and friends' online / offline changes, on the game's own notification channel. true by default.",
+  "friend_notifications": true,
+
+  "_players": "Optional. Maps the Ubisoft account name a client logs in with to a display name and/or a fixed principal id (>= 1000). Purely server-side bookkeeping, the same as acb-rdv's local users table. Per-player files are named after the ACCOUNT, not the display name, so renaming somebody keeps their profile and career.",
+  "players": {},
+
+  "_connection_timeout": "Seconds of silence after which a client is treated as disconnected (it pings every ~20 s). 0 disables.",
+  "connection_timeout": 120,
+
+  "_log_packets": "Every packet's RECV / SEND line and hex dump in the game server's log - what reverse engineering needs, hundreds of MB an evening. false (default): the RMC call lines only. Login credentials are never logged either way.",
+  "log_packets": false,
+  "_log_max_mb": "A log file rolls over to a new one at this size (MB).",
+  "log_max_mb": 100,
+  "_log_keep": "Keep only the newest this many log files (0 = keep every file). Default 30.",
+  "log_keep": 30,
+  "_history_keep": "Every profile upload and stats report is also kept as a snapshot (history/, stats_history/ in the data folder), so a bad one can be rolled back. Keep the newest this many per player and kind (0 = all). Default 200.",
+  "history_keep": 200,
+  "_onlinesave_shrink_guard": "Protects each player's profile from a much smaller upload: one under this fraction of the stored save's size, or with under this fraction of its persona loadout entries, or not a well-formed save, is refused - the stored save stays, the upload is kept as history/<account>_<time>_refused.bin and the game is answered as if saved. Default 0.5; 0 = off.",
+  "onlinesave_shrink_guard": 0.5,
+
+  "_nat_detect": "The game's NAT type detection at every start (Open / Moderate / Strict; it filters matchmaking by it). \"ubisoft\" (default): Ubisoft's own detect servers, still answering in October 2026. \"own\": this server answers on UDP nat_detect_port, +1 and +2 - open them in the firewall. nat_detect_address2: a second public address of this machine for the most faithful results (server 2 then listens on nat_detect_port there instead of +2).",
+  "nat_detect": "ubisoft",
+  "nat_detect_port": 11000,
+  "nat_detect_address2": "",
+
+  "_status_port": "The game server answers GET /status on this TCP port, on 127.0.0.1 only, for the HTTP side's /status. Nothing to open in a firewall. 21080 by default.",
+  "status_port": 21080,
+
+  "_ladder": "The Abstergo Ladder (Ladder 0x7A). true (default): each match's end is worked out into ladder points and a rating. false: endGame is answered with an empty list (no income, nothing stored).",
+  "ladder": true,
+  "_ladder_private": "Whether a private match earns ladder points and moves the rating: 'count' (default) or 'skip'.",
+  "ladder_private": "count",
+
+  "_advanced": "Advanced: each of these is right at its default for normal play, and exists to reproduce or test a specific behaviour.",
+  "_stats_accumulate": "How career statistics (proto 0x6C) carry forward - that is where XP lives. On by default: each stat is folded with the op byte the client sends alongside it (0 adds, 2 replaces, 3 keeps the larger). Off: every stat is replaced by the newest match. Every raw report is kept under stats_history/ either way.",
+  "stats_accumulate": true,
+  "_notify_group_events": "Whether a group tells its members about each other (type 7003 join, 7002 leave, 7001 new leader). On by default: without the join event the leader's game never learns it has a member and dissolves the group the moment it creates a match session.",
+  "notify_group_events": true,
+  "_strict_session_matching": "Whether SearchSessions filters its results by the client's query. Off by default (every other host's session is returned, and the log names every session a filter would have dropped and why).",
+  "strict_session_matching": false,
+
+  "_experiments": "Experiments: off by default because what they do in the game is not yet established.",
+  "_notify_participants": "Push a GameSession notification to the other players when somebody joins or leaves a session. Invitations are always pushed regardless. Off by default: the client's participation-event minor codes have not been matched to meanings. With it off, the server logs what it would have sent.",
+  "notify_participants": false
+}

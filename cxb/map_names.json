@@ -1,0 +1,157 @@
+{
+ "263022986": {
+  "name": "Fort Wolcott",
+  "variant": "Night",
+  "object": "MpWorld_Fort_Wolcott_Night"
+ },
+ "263022993": {
+  "name": "Fort Wolcott",
+  "variant": "Weather",
+  "object": "MpWorld_Fort_Wolcott_Weather"
+ },
+ "298049837": {
+  "name": "Boston North End",
+  "variant": "Night",
+  "object": "MpWorld_Boston_Mill_Night"
+ },
+ "298049844": {
+  "name": "Boston North End",
+  "variant": "Weather",
+  "object": "MpWorld_Boston_Mill_Weather"
+ },
+ "395011840": {
+  "name": "Boston Harbor",
+  "variant": "Day",
+  "object": "MpWorld_Map_Boston_Harbour"
+ },
+ "425551432": {
+  "name": "New York Brewery",
+  "variant": "Day",
+  "object": "MpWorld_Brewery"
+ },
+ "425551433": {
+  "name": "Northwest Passage",
+  "variant": "Day",
+  "object": "MpWorld_Iceberg"
+ },
+ "1453016564": {
+  "name": "Fort St-Mathieu",
+  "variant": "Night",
+  "object": "MpWorld_Fort_StMathieu_Night"
+ },
+ "1453016567": {
+  "name": "Fort St-Mathieu",
+  "variant": "Weather",
+  "object": "MpWorld_Fort_StMathieu_Weather"
+ },
+ "1453016576": {
+  "name": "Charlestown",
+  "variant": "Night",
+  "object": "MpWorld_Charlestown_Night"
+ },
+ "1453016579": {
+  "name": "Charlestown",
+  "variant": "Weather",
+  "object": "MpWorld_Charlestown_Weather"
+ },
+ "1473204467": {
+  "name": "Virginian Plantation",
+  "variant": "Night",
+  "object": "MpWorld_Plantation_Night"
+ },
+ "1473204474": {
+  "name": "Virginian Plantation",
+  "variant": "Weather",
+  "object": "MpWorld_Plantation_Weather"
+ },
+ "1476191984": {
+  "name": "Saint Pierre",
+  "variant": "Night",
+  "object": "AC3MP_Martinique_Night_MpWorld"
+ },
+ "1476192023": {
+  "name": "Saint Pierre",
+  "variant": "Weather",
+  "object": "AC3MP_Martinique_Weather_MpWorld"
+ },
+ "1476192027": {
+  "name": "Animus Core",
+  "variant": "Night",
+  "object": "AC3MP_Animus_Night_MpWorld"
+ },
+ "1476192073": {
+  "name": "Animus Core",
+  "variant": "Weather",
+  "object": "AC3MP_Animus_Weather_MpWorld"
+ },
+ "2569229101": {
+  "name": "Fort St-Mathieu",
+  "variant": "Day",
+  "object": "MpWorld_Fort_StMathieu"
+ },
+ "2569229107": {
+  "name": "Charlestown",
+  "variant": "Day",
+  "object": "MpWorld_Charlestown"
+ },
+ "3041665098": {
+  "name": "Northwest Passage",
+  "variant": "Night",
+  "object": "MpWorld_Iceberg_Night"
+ },
+ "3041665109": {
+  "name": "Boston Harbor",
+  "variant": "Night",
+  "object": "MpWorld_Boston Harbour_Night"
+ },
+ "3041665707": {
+  "name": "New York Brewery",
+  "variant": "Night",
+  "object": "MpWorld_Brewery_Night"
+ },
+ "3075695057": {
+  "name": "Boston Harbor",
+  "variant": "Weather",
+  "object": "MpWorld_Harbour_Weather"
+ },
+ "3513154569": {
+  "name": "Boston North End",
+  "variant": "Day",
+  "object": "MpWorld_Boston_Mill"
+ },
+ "3526959583": {
+  "name": "Fort Wolcott",
+  "variant": "Day",
+  "object": "MpWorld_Fort_Wolcott"
+ },
+ "3526959590": {
+  "name": "Virginian Plantation",
+  "variant": "Day",
+  "object": "MpWorld_Plantation"
+ },
+ "3632686121": {
+  "name": "Animus Core",
+  "variant": "Day",
+  "object": "AC3MP_Animus_MpWorld"
+ },
+ "3632686123": {
+  "name": "Saint Pierre",
+  "variant": "Day",
+  "object": "AC3MP_Martinique_MpWorld"
+ },
+ "3640721034": {
+  "name": "New York Brewery",
+  "variant": "Weather",
+  "object": "MpWorld_Brewery_Weather"
+ },
+ "3700469477": {
+  "name": "Northwest Passage",
+  "variant": "Weather",
+  "object": "MpWorld_Iceberg_Weather"
+ },
+ "3766323924": {
+  "name": "Marketing_map",
+  "variant": "Day",
+  "object": "MpWorld_AC2MP_Marketing_Map"
+ }
+}

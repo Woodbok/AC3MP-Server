@@ -1,0 +1,18 @@
+# --- Python ---------------------------------------------------------------
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# --- local only: config, editors ------------------------------------------
+server_config.json
+server_config.json.*
+.env
+.idea/
+.vscode/
+*.tmp
+
+# --- server state and logs: never committed --------------------------------
+# prudp/data holds every player's profile, career, balance, purchases and friendships; the logs name every player.
+prudp/data/
+prudp/logs/
