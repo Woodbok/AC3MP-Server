@@ -1,19 +1,7 @@
 # ac3-server
 
 A server for **Assassin's Creed III multiplayer** (PC, v1.00): a reimplementation of the Ubisoft / Quazal
-Rendez-Vous backend the game talks to, for owners of the game now that Ubisoft's official servers are gone. It works
-with the game as it ships - no mods.
-
-Not affiliated with Ubisoft. No game executables or game data files are distributed here; see
-[docs/CREDITS.md](docs/CREDITS.md) for what is, and the credits.
-
-## Status
-
-Working and seen in game: login and the whole online start-up, public matchmaking and joins between machines,
-groups, private matches by invitation, friends lists served by the server, the shop balance, XP and career
-persistence, the Abstergo Ladder, and the DLC maps through the game settings.
-
-Not yet proven: play between players behind different strict NATs.
+Rendez-Vous backend the game talks to. It works with the game as it ships.
 
 ## Run a server
 
@@ -32,8 +20,7 @@ backups and troubleshooting: **[docs/RUNNING.md](docs/RUNNING.md)**.
 
 ## Play on a server
 
-Start the game through Ubisoft Connect as always. Once, point it at the server - with Python installed, in an
-Administrator PowerShell:
+Point it at the server - with Python installed, in an Admin PowerShell:
 
 ```
 python patcher\ac3mp_patch.py "C:\path\to\Assassin's Creed III\AC3MP.exe" --host <server name or address>
@@ -71,16 +58,6 @@ small binary files in `prudp/data/`. How it all fits together: [docs/ARCHITECTUR
 | `tests/` | offline self-tests - `python tests/run_all.py` |
 | `docs/` | [ARCHITECTURE.md](docs/ARCHITECTURE.md), [RUNNING.md](docs/RUNNING.md), [CREDITS.md](docs/CREDITS.md) |
 
-## Development
-
-```
-python tests/run_all.py
-```
-
-runs the offline self-tests and `tests/smoke_test.py`, which starts both server processes on free local ports and
-talks to them over the network - it runs fine beside a server that is already up. They write only to temporary
-folders, never to `prudp/data/`. `tests/load_test.py` (needs `pip install psutil`) measures capacity with simulated
-players.
 
 ## Licence
 
